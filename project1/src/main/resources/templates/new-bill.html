@@ -1,0 +1,25 @@
+<body>
+	<form th:action="@{/bill/new}" method="post" th:object="${bill}">
+		<label>User ID:</label>
+        <input type="number" id="userId" name="user.id" required><br><br>
+	
+	 <div th:each="itemStat : ${#numbers.sequence(0, 1)}" class="bill-item">
+            <label th:text="'Bill Item ' + ${itemStat} + 1"></label><br>
+            
+            <label for="quantity" th:text="'Quantity:'"></label>
+            <input type="number" th:id="'quantity' + ${itemStat}" th:name="'billItems[' + ${itemStat} + '].quantity'" required><br>
+            
+            <label for="price" th:text="'Price:'"></label>
+            <input type="number" th:id="'price' + ${itemStat}" th:name="'billItems[' + ${itemStat} + '].price'" required><br>
+            
+            <label for="productId" th:text="'Product ID:'"></label>
+            <input type="number" th:id="'productId' + ${itemStat}" th:name="'billItems[' + ${itemStat} + '].product.id'" required><br><br>
+        </div>
+        
+		<div>
+			<button type="submit">Save</button>
+		</div>
+	</form>
+</body>
+
+</html>

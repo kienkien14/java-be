@@ -1,0 +1,12 @@
+
+<form th:action="@{/category/new}" method="post" th:object="${category}">
+	<div>
+		<label>Name:</label>
+		<input type="text" th:field="*{name}" />
+		<p th:errors="*{name}"></p>
+	</div>
+	<div>
+		<button type="submit">Save</button>
+	</div>
+</form>
+
